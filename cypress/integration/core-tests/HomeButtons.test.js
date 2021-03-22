@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-describe('First: Home section', () => {
+describe('First: Home buttons', () => {
 
     //Adding a hook that runs before the test
     beforeEach(() => {
