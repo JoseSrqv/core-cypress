@@ -4,7 +4,7 @@ describe('First: Register test suit', () => {
         cy.visit('https://staging-kfc-ec.getduna.com/')
     })
     it('T2: Register', () => {
-        const email = "testcypress1@gmail.com"
+        const email = "testcypress3@gmail.com"
         const password = "@Faker121250" 
         const password_conf = "@Faker121250"
 
@@ -20,8 +20,7 @@ describe('First: Register test suit', () => {
         cy.get('#spree_user_password_confirmation').type(password_conf);
         cy.get('.btn-block:nth-child(1)').click();
         
-        cy.contains('Bienvenido! Te has dado de alta satisfactoriamente.')
-      
+        cy.contains('.alert' , 'Bienvenido! Te has dado de alta satisfactoriamente.')
     })
 })
 
