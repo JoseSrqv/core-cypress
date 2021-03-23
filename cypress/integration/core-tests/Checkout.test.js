@@ -40,9 +40,9 @@ describe('First: Checkout', () => {
         // cy.get('#order_special_instructions').type('Cypress instrucciones de envio');
 
         // cy.get('.btn-primary').click();
-        // cy.get('.checkout-content-save-continue-button').click('center');
+        cy.get('.checkout-content-save-continue-button').click('center');
         // cy.get('[data-hook="buttons"] > .btn').click('center');
-        cy.contains('Guardar y continuar').click()
+        // cy.contains('Guardar y continuar').click()
         cy.url().should('include', '/payment');
         // cy.get('.btn-primary').click();
         cy.get('#checkout_form_payment').submit();
