@@ -24,7 +24,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add("login", (email, password) => {
 
-    cy.visit('https://staging-kfc-ec.getduna.com/')
+  cy.viewport(320, 480)
+    cy.visit('https://staging-kfc-co.getduna.com/')
 
     cy.get('#account-button').click();
     cy.get('.dropdown-item:nth-child(1)').click();
@@ -36,6 +37,7 @@ Cypress.Commands.add("login", (email, password) => {
     cy.get('label:nth-child(3)').click();
     cy.get('[type=submit').click();
 
+    // cy.wait(4000);
 
     cy.contains('.alert > span', 'Conectado con éxito')
     cy.location('pathname').should('equal', '/account')

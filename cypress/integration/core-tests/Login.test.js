@@ -5,7 +5,7 @@ describe('First: Login test suit', () => {
         const email = "testcypress999@gmail.com"
         const password = "@Faker121250"
 
-        cy.visit('https://staging-kfc-ec.getduna.com/')
+        cy.visit('https://staging-kfc-co.getduna.com/')
 
         cy.get('#account-button').click();
         cy.get('.dropdown-item:nth-child(1)').click();
@@ -28,7 +28,7 @@ describe('First: Login test suit', () => {
         // cy.contains('a.nav-link', 'Global feed').should('have.class', 'nav-link active')
     })
     it('T2: Valid email and password', () => {
-        cy.login('testcypress1@gmail.com', '@Faker121250')
+        cy.login('cypress1@gmail.com', '@Faker121250')
     })
     it('T3: Valid email and invalid password', () => {
     })

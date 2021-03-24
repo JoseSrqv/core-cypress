@@ -3,7 +3,7 @@
 describe('First: Make an order', () => {
     it('T1: Order with login', () => {
 
-        cy.login('testcypress1@gmail.com', '@Faker121250')
+        cy.login('cypress1@gmail.com', '@Faker121250')
 
         cy.get('li:nth-child(1) span').click();
         cy.get('.col-6:nth-child(1) .w-100').click();

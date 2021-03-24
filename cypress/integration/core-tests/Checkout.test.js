@@ -29,24 +29,32 @@ describe('First: Checkout', () => {
 
         // cy.get('#checkout_form_address').click();
         // cy.get('.checkout-content-save-continue-button').submit()
-        cy.get('.checkout-content-save-continue-button').click({delay: 500})
+
+        cy.preventFormSubmitDefault("form");
+        cy.get('.checkout-content-save-continue-button').click()
         // cy.get('#checkout_form_address').submit()
         // cy.wait(150)
         // cy.get('#checkout_form_address').click();
         // cy.url().should('include', '/delivery');
+        // cy.wait(2000)
+
         cy.location('pathname').should('equal', '/checkout') //This behaviour is strange, the path is /delivery, anyway the following asserting verify the order flow. 
 
         //from delivery method to finish the order
         // cy.get('#order_special_instructions').type('Cypress instrucciones de envio');
 
         // cy.get('.btn-primary').click();
-        cy.get('.checkout-content-save-continue-button').click('center');
-        // cy.get('[data-hook="buttons"] > .btn').click('center');
+        cy.preventFormSubmitDefault("form");
+        // cy.wait(2000);
+        cy.get('.checkout-content-save-continue-button').click({force: true});
+        cy.wait(6000);
+        // cy.get('[data-hook="buttons"] > .btn').click('top', {force: true});
         // cy.contains('Guardar y continuar').click()
         cy.url().should('include', '/payment');
         // cy.get('.btn-primary').click();
         cy.get('#checkout_form_payment').submit();
         cy.url().should('include', '/orders/');
+
         cy.contains('.w-100:nth-child(3)', 'Orden recibida correctamente');         
     })
 })
